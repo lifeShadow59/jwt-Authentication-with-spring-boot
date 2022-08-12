@@ -1,5 +1,6 @@
 package com.jwt.services;
 
+import com.jwt.model.JwtRequest;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,5 +16,11 @@ public class CustomUserDetailsService implements UserDetailsService {
             return new User("abhishek", "Dhanani", new ArrayList<>());
         }
         throw new UsernameNotFoundException("User not found");
+    }
+
+    public ArrayList<JwtRequest> getAllUsersList(){
+        final ArrayList<JwtRequest> usersList = new ArrayList<JwtRequest>();
+        usersList.add(new  JwtRequest("abhishek", "dhanani"));
+        return usersList;
     }
 }

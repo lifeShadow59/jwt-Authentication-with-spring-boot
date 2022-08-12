@@ -34,7 +34,6 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable().cors().disable().authorizeRequests().antMatchers("/token")
                 .permitAll().anyRequest().authenticated().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        System.out.println("Run addFilterBefore");
         http.addFilterBefore(JwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
